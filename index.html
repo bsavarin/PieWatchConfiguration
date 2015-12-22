@@ -51,53 +51,9 @@
     <div class="item-container">
       <div class="item-container-header">Colour Pickers</div>
       <div class="item-container-content">
-        <label class="item">
-          Outer Background Colour (not visible in Pebble Round)
-          <input id="obgcolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0x0000FF">
-        </label>
-		<label class="item">
-          Inner (Clock) Background Colour
-          <input id="ibgcolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0xFFFFFF">
-        </label>
-		<label class="item">
-          Second Hand Colour
-          <input id="shcolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0xFF0000">
-        </label>
-		<label class="item">
-          Minute Hand Colour
-          <input id="mhcolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0x000000">
-        </label>
-		<label class="item">
-          Hour Hand Colour
-          <input id="hhcolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0x000000">
-        </label>
-		<label class="item">
-          Ticks Colour
-          <input id="tcolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0x000000">
-        </label>
-		<label class="item">
-          Dot in the Middle Colour
-          <input id="dcolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0x000000">
-        </label>
-		<label class="item">
-          Clock Numbers Colour
-          <input id="ncolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0x000000">
-        </label>
-		<label class="item">
-          Date Colour
-          <input id="dtcolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0xFFFF00">
-        </label>
-		<label class="item">
-          Circle Border Colour
-          <input id="ccolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0x000000">
-        </label>
-		<label class="item">
-          Battery Percentage Colour
-          <input id="bcolour_display" type="text" class="item-color item-color-normal" name="color-1" value="0x0000FF">
-        </label>		
       </div>
 	  <div class="item-container-footer">The settings above will only change on the watch after pressing the SAVE button below.</div>
-    </div>
+	  </div>
 
     <div class="item-container">
       <div class="button-container">
@@ -118,46 +74,13 @@
    function getConfigData() {
         var invertSelect = document.getElementById("invert_select");
 		var secondsDisplay = document.getElementById("seconds_display");
-		var obgcolourDisplay = document.getElementById("obgcolour_display");
-		var ibgcolourDisplay = document.getElementById("ibgcolour_display");
-		var shcolourDisplay = document.getElementById("shcolour_display");
-		var mhcolourDisplay = document.getElementById("mhcolour_display");
-		var hhcolourDisplay = document.getElementById("hhcolour_display");
-		var tcolourDisplay = document.getElementById("tcolour_display");
-		var dcolourDisplay = document.getElementById("dcolour_display");
-		var ncolourDisplay = document.getElementById("ncolour_display");
-		var dtcolourDisplay = document.getElementById("dtcolour_display");
-		var ccolourDisplay = document.getElementById("ccolour_display");
-		var bcolourDisplay = document.getElementById("bcolour_display");
 		
 		var options = {
           "invert": invertSelect.checked ? "true":"false",
-		  "seconds": secondsDisplay.checked ? "true":"false",
-		  "obgcolour": obgcolourDisplay.value,
-		  "ibgcolour": ibgcolourDisplay.value,
-		  "shcolour": shcolourDisplay.value,
-		  "mhcolour": mhcolourDisplay.value,
-		  "hhcolour": hhcolourDisplay.value,
-		  "tcolour": tcolourDisplay.value,
-		  "dcolour": dcolourDisplay.value,
-		  "ncolour": ncolourDisplay.value,
-		  "dtcolour": dtcolourDisplay.value,
-		  "ccolour": ccolourDisplay.value,
-		  "bcolour": bcolourDisplay.value
+		  "seconds": secondsDisplay.checked ? "true":"false"
 		};
 			localStorage["invert"] = options.invert;
 			localStorage["seconds"] = options.seconds;
-			localStorage["obgcolour"] = options.obgcolour;
-			localStorage["ibgcolour"] = options.ibgcolour;
-			localStorage["shcolour"] = options.shcolour;
-			localStorage["mhcolour"] = options.mhcolour;
-			localStorage["hhcolour"] = options.hhcolour;
-			localStorage["tcolour"] = options.tcolour;
-			localStorage["dcolour"] = options.dcolour;
-			localStorage["ncolour"] = options.ncolour;
-			localStorage["dtcolour"] = options.dtcolour;
-			localStorage["ccolour"] = options.ccolour;
-			localStorage["bcolour"] = options.bcolour;
 
 		console.log('Got options: ' + JSON.stringify(options));	
         return options;
@@ -191,32 +114,10 @@
 	function loadOptions(){
 	    var invertSelect = document.getElementById("invert_select");
 		var secondsDisplay = document.getElementById("seconds_display");
-		var obgcolourDisplay = document.getElementById("obgcolour_display");
-		var ibgcolourDisplay = document.getElementById("ibgcolour_display");
-		var shcolourDisplay = document.getElementById("shcolour_display");
-		var mhcolourDisplay = document.getElementById("mhcolour_display");
-		var hhcolourDisplay = document.getElementById("hhcolour_display");
-		var tcolourDisplay = document.getElementById("tcolour_display");
-		var dcolourDisplay = document.getElementById("dcolour_display");
-		var ncolourDisplay = document.getElementById("ncolour_display");
-		var dtcolourDisplay = document.getElementById("dtcolour_display");
-		var ccolourDisplay = document.getElementById("ccolour_display");
-		var bcolourDisplay = document.getElementById("bcolour_display");
 		
 		if(localStorage["invert"]) {
 			invertSelect.checked = localStorage["invert"] === "true";
 			secondsDisplay.checked = localStorage["seconds"] === "true";
-			obgcolourDisplay.value = localStorage["obgcolour"];
-			ibgcolourDisplay.value = localStorage["ibgcolour"];
-			shcolourDisplay.value = localStorage["shcolour"];
-			mhcolourDisplay.value = localStorage["mhcolour"];
-			hhcolourDisplay.value = localStorage["hhcolour"];
-			tcolourDisplay.value = localStorage["tcolour"];
-			dcolourDisplay.value = localStorage["dcolour"];
-			ncolourDisplay.value = localStorage["ncolour"];
-			dtcolourDisplay.value = localStorage["dtcolour"];
-			ccolourDisplay.value = localStorage["ccolour"];
-			bcolourDisplay.value = localStorage["bcolour"];
 		}
 	}
 
